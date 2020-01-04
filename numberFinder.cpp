@@ -9,6 +9,26 @@
 #include <string>
 #include <ctime>
 
+std::stoi determiner(std::stoi userNumber, std::stoi numberArray, std::stoi checkerVal)
+                      
+    // process and output
+    try {
+        userNumberInt = std::stoi(userNumber);
+        for (repeater = 0; repeater < 50; repeater++) {
+            if (userNumberInt == numberArray[repeater]) {
+                std::cout << "The number " << userNumberInt
+                          << " is located on the list at the "
+                          << repeater + 1 << "th place" << std::endl;
+                checkerVal = 1;
+            }
+        }
+    } catch (...) {
+        checkerVal = 1;
+        std::cout << "Please input only proper integer numbers" << std::endl;
+    }
+    if (checkerVal == 0) {
+        std::cout << "Your number was not on the list" << std::endl;
+    }
 
 int main() {
     // This program finds numbers in a array
@@ -31,22 +51,6 @@ int main() {
     }
     std::cout << "Please enter the number you wish to search for: ";
     std::cin >> userNumber;
-    // process and output
-    try {
-        userNumberInt = std::stoi(userNumber);
-        for (repeater = 0; repeater < 50; repeater++) {
-            if (userNumberInt == numberArray[repeater]) {
-                std::cout << "The number " << userNumberInt
-                          << " is located on the list at the "
-                          << repeater + 1 << "th place" << std::endl;
-                checkerVal = 1;
-            }
-        }
-    } catch (...) {
-        checkerVal = 1;
-        std::cout << "Please input only proper integer numbers" << std::endl;
-    }
-    if (checkerVal == 0) {
-        std::cout << "Your number was not on the list" << std::endl;
-    }
+    
+    checkAnswer = determiner(userNumber, numberArray, checkerVal)
 }
