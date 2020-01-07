@@ -8,10 +8,14 @@
 #include <cstdlib>
 #include <string>
 #include <ctime>
+#include <array>
 
-std::stoi determiner(std::stoi userNumber, std::stoi numberArray, std::stoi checkerVal)
-                      
+int determiner(std::string userNumber, int numberArray[50]) {
+
     // process and output
+    int userNumberInt; 
+    int repeater = 0;
+    int checkerVal = 0;
     try {
         userNumberInt = std::stoi(userNumber);
         for (repeater = 0; repeater < 50; repeater++) {
@@ -29,6 +33,7 @@ std::stoi determiner(std::stoi userNumber, std::stoi numberArray, std::stoi chec
     if (checkerVal == 0) {
         std::cout << "Your number was not on the list" << std::endl;
     }
+}
 
 int main() {
     // This program finds numbers in a array
@@ -36,11 +41,11 @@ int main() {
     srand(time(NULL));
     int numberArray[50];
     int seed;
-    int repeater = 0;
     int randomnumbers = 0;
+    int checkAnswer;
+    int repeater = 0;
+    int userNumberIntT;
     std::string userNumber;
-    int userNumberInt;
-    int checkerVal = 0;
 
     // Inputs
     for (repeater = 0; repeater < 50 ; repeater++) {
@@ -51,6 +56,7 @@ int main() {
     }
     std::cout << "Please enter the number you wish to search for: ";
     std::cin >> userNumber;
-    
-    checkAnswer = determiner(userNumber, numberArray, checkerVal)
+
+    checkAnswer = determiner(userNumber, numberArray);
+
 }
